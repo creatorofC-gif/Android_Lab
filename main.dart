@@ -34,6 +34,83 @@ class FoodHomepage extends StatefulWidget {
 }
 
 class _FoodHomepageState extends State<FoodHomepage> {
+
+  String category = "All";
+
+  Widget showFood() {
+    switch (category) {
+      case "Pizza":
+        return Column(
+          children: [
+            Image.asset(
+              "Assets/pizza.jpg",
+              height: 150,
+            ),
+            Text("Margherita Pizza"),
+            Text("₹299"),
+          ],
+        );
+
+      case "Chinese":
+        return Column(
+          children: [
+            Image.asset(
+              "Assets/chinese.jpg",
+              height: 150,
+            ),
+            Text("Chinese Noodles"),
+            Text("₹199"),
+          ],
+        );
+
+      case "Burger":
+        return Column(
+          children: [
+            Image.asset(
+              "Assets/burger.jpg",
+              height: 150,
+            ),
+            Text("Burger"),
+            Text("₹299"),
+          ],
+        );
+
+      case "All":
+        return Column(
+          children: [
+            Image.asset(
+              "Assets/pizza.jpg",
+              height: 150,
+            ),
+            Text("Margherita Pizza"),
+            Text("₹299"),
+
+            SizedBox(height: 20),
+
+            Image.asset(
+              "Assets/chinese.jpg",
+              height: 150,
+            ),
+            Text("Chinese Noodles"),
+            Text("₹199"),
+
+            SizedBox(height: 20),
+
+            Image.asset(
+              "Assets/burger.jpg",
+              height: 150,
+            ),
+            Text("Burger"),
+            Text("₹299"),
+          ],
+        );
+
+      default:
+        return Text("No food available");
+    }
+  }
+  
+  
   int cartCounter = 0;
   int selectedIndex = 0;
 
@@ -129,37 +206,57 @@ class _FoodHomepageState extends State<FoodHomepage> {
       Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
     children: [
+
       Column(
     children: [
+      ElevatedButton(onPressed: (){
+        setState(() {
+          category = "Pizza";
+        });
+      }, child: Text("Pizza")),
       Icon(Icons.local_pizza),
-    Text("Pizza"),
+
     ],
     ),
 
     Column(
     children: [
+      ElevatedButton(onPressed: (){
+        setState(() {
+          category = "Chinese";
+        });
+      }, child: Text("Chinese")),
       Icon(Icons.ramen_dining),
-    Text("Chinese"),
     ],
     ),
 
 
     Column(
     children: [
+      ElevatedButton(onPressed: (){
+        setState(() {
+          category = "Burger";
+        });
+      }, child: Text("Burger")),
       Icon(Icons.lunch_dining),
-    Text("Burger"),
     ],
     ),
 
     Column(
     children: [
-      Icon(Icons.restaurant),
-    Text("Indian"),
+      ElevatedButton(onPressed: (){
+        setState(() {
+          category = "All";
+        });
+      }, child: Text("All")),
+      Icon(Icons.local_dining),
     ],
-    )
+    ),
+
     ],
 
     ),
+      showFood(),
     SizedBox(height: 30),
 
     FoodItem(
@@ -186,6 +283,8 @@ class _FoodHomepageState extends State<FoodHomepage> {
   }
 }
 
+
+
 class FoodItem extends StatelessWidget {
 
   final Function addToCart;
@@ -197,31 +296,6 @@ class FoodItem extends StatelessWidget {
 
     return Column(
       children: [
-
-        Image.asset(
-          "Assets/anh-nguyen-kcA-c3f_3FE-unsplash.jpg",
-          height: 150,
-          width: 250,
-        ),
-
-        SizedBox(height: 10),
-
-        Text(
-          "Margherita Pizza",
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-
-        Text("Fresh mozzarella, tomato and basil"),
-
-        Text(
-          "₹299",
-          style: TextStyle(
-            fontSize: 18,
-          ),
-        ),
 
         SizedBox(height: 10),
 
