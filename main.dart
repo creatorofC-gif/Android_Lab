@@ -214,7 +214,9 @@ class _FoodHomepageState extends State<FoodHomepage> {
           category = "Pizza";
         });
       }, child: Text("Pizza")),
-      Icon(Icons.local_pizza),
+
+      SizedBox(height: 20),
+
 
     ],
     ),
@@ -226,7 +228,7 @@ class _FoodHomepageState extends State<FoodHomepage> {
           category = "Chinese";
         });
       }, child: Text("Chinese")),
-      Icon(Icons.ramen_dining),
+      SizedBox(height: 20),
     ],
     ),
 
@@ -238,7 +240,7 @@ class _FoodHomepageState extends State<FoodHomepage> {
           category = "Burger";
         });
       }, child: Text("Burger")),
-      Icon(Icons.lunch_dining),
+      SizedBox(height: 20),
     ],
     ),
 
@@ -249,7 +251,7 @@ class _FoodHomepageState extends State<FoodHomepage> {
           category = "All";
         });
       }, child: Text("All")),
-      Icon(Icons.local_dining),
+      SizedBox(height: 20),
     ],
     ),
 
